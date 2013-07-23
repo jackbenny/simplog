@@ -6,6 +6,9 @@ $database = "test_db";
 $user = "test_db";
 $password = "test_pw";
 
+// How many posts do we want on each page
+$posts_per_page = 5;
+
 
 // Connect to MySQL database
 $link = mysql_connect($host, $user, $password)
@@ -14,13 +17,23 @@ $link = mysql_connect($host, $user, $password)
 mysql_select_db($database)
     or die("Could not open database");
 
-// Query database
-$query = "SELECT * FROM blog ORDER BY date DESC LIMIT 0, 5";
+// Divide the posts into pages, N number of posts on every page
+if (isset($_GET["page"]))
+{
+	$page = $_GET["page"];
+}
+else
+{
+	$page=1;
+}
+$start = ($page-1) * $posts_per_page;
+
+$query = "SELECT * FROM blog ORDER BY date DESC LIMIT $start, $posts_per_page";
 $result = mysql_query($query)
     or die("No matching queries...");
 
 
-// Printing results in HTML
+// Printing posts in HTML
 while ($line = mysql_fetch_array($result))
 {
 print "<h2>" . $line['title'] . "</h2>";
@@ -30,8 +43,21 @@ print "\n<br/>" . $line['date'];
 print "</p>";
 }
 
-mysql_free_result($result);
+// Printing page links
+$query = "SELECT COUNT(title) FROM blog";
+$result = mysql_query($query);
+$rows = mysql_fetch_row($result);
+$total_posts = $rows[0];
+$total_posts = ceil($total_posts / $posts_per_page);
 
+for ($i=1; $i<=$total_posts; $i++)
+{
+	print "<a href='index.php?page=".$i."'>".$i."</a> ";
+}
+
+
+// Close MySQL link
+mysql_free_result($result);
 mysql_close($link);
 
 
