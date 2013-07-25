@@ -1,12 +1,11 @@
 simplog
 =======
 
-simplog is a (very) simply PHP blog engine. It's supposed to be implemented into an existing webpage since this in only the engine part and does not contain a ccomplete webpage/blog of any kind.
+simplog is a (very) simply PHP blog engine. It's supposed to be implemented into an existing webpage since this in only the engine part and does not contain a ccomplete webpage/blog of any kind. It's also intended to only have a single user.
 
 What's missing?
 ---------------
-Pretty much everything, depending on how you plan to use it. simplog as of right now does not include anything to acually write/post blog posts. To create a blog post you have to manually create it in a MySQL database.
-As of right now the only thing it can do is to display posts already created.
+Pretty much everything, depending on how you plan to use it. Included is a template to create the MySQL table, a small HTML and PHP file to create new posts, an index.php that displays your posts and a config file to connect to a database and set number of posts per page. What's currently missing is a way to edit posts. Also you need to protect the user directory yourself (with for example a .htaccess file), or else everyone can post to your blog.
 
 How do I create the MySQL table?
 --------------------------------
