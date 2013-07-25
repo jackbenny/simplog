@@ -6,17 +6,15 @@ simplog is a (very) simply PHP blog engine. It's supposed to be implemented into
 What's missing?
 ---------------
 Pretty much everything, depending on how you plan to use it. simplog as of right now does not include anything to acually write/post blog posts. To create a blog post you have to manually create it in a MySQL database.
-There is also no template to create the database as of right now.
 As of right now the only thing it can do is to display posts already created.
 
-What should the MySQL table look like?
---------------------------------------
-To create a table to be able to work with this blog engine you need a table to look like this (name it "blog" since that's what I used in the code).
+How do I create the MySQL table?
+--------------------------------
+Either create a new database and possibly a new user or use an existing database/user and run the command:
 
-An int field called postnumber with auto increment.
-A date field called date.
-A text field called tile.
-A text field called posttext.
+mysql -u <user> -p < blogtable.sql
+
+You'll be asked to enter the passwor for the user, enter it. Now you have created the table for the blog. Now you can start filling it with blog posts.
 
 Contributing
 ------------
