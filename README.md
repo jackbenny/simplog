@@ -12,7 +12,7 @@ How do I create the MySQL table?
 --------------------------------
 Either create a new database and possibly a new user or use an existing database/user and run the command:
 
-mysql -u <user> -p < blogtable.sql
+	mysql -u <user> -p < blogtable.sql
 
 You'll be asked to enter the passwor for the user, enter it. Now you have created the table for the blog. Now you can start filling it with blog posts.
 
