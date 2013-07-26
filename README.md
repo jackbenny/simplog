@@ -1,7 +1,7 @@
 simplog
 =======
 
-simplog is a (very) simply PHP blog engine. It's supposed to be implemented into an existing webpage since this in only the engine part and does not contain a ccomplete webpage/blog of any kind. It's also intended to only have a single user.
+simplog is a (very) simple PHP blog engine. It's supposed to be implemented into an existing webpage since this in only the engine part and does not contain a complete webpage/blog of any kind. It's also intended to only have a single user.
 
 What's missing?
 ---------------
