@@ -1,14 +1,9 @@
 <?php
 
-// Include config file
-require "config.php";
+// Include config file and other include-files
+require "includes/config.php";
+require "includes/dbconnect.php";
 
-// Connect to MySQL database
-$link = mysql_connect($host, $user, $password)
-    or die("Could not connect...");
-
-mysql_select_db($database)
-    or die("Could not open database");
 
 // Divide the posts into pages, N number of posts on every page
 if (isset($_GET["page"]))

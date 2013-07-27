@@ -5,14 +5,14 @@ require "../includes/config.php";
 require "../includes/dbconnect.php";
 
 
-$query = "INSERT INTO blog (date, title, posttext) VALUES
-('$_POST[date]','$_POST[title]','$_POST[post]')";
+$query = "UPDATE blog SET date='$_POST[date]', title='$_POST[title]',
+posttext='$_POST[post]' WHERE postnumber='$_POST[postnumber]'";
 
 if (!mysql_query($query))
 {
 	die ("Something went wrong!");
 }
-print "Post added";
+print "Post updated";
 
 
 // Close MySQL link
