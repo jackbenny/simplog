@@ -3,7 +3,10 @@
 // Include config file
 require "../includes/config.php";
 require "../includes/dbconnect.php";
+require "../includes/htmlcode.php";
 
+start_html("Edit post");
+print "<h1>Edit post</h1>";
 
 $query = "SELECT * FROM blog WHERE date='$_GET[date]' AND title='$_GET[title]'";
 $result = mysql_query($query)
@@ -24,13 +27,15 @@ Text: <br />
 <textarea cols='50' rows='10' name='post'>$line[posttext]</textarea>
 <br />
 <input type='submit' value='Update post'>
-</form>";
+</form>
+<hr width='50%' align='left'>
+<br />";
 }
 
-
 // Close MySQL link
-mysql_free_result($result);
-mysql_close($link);
+require "../includes/dbclose.php";
 
+end_html();
 
 ?>
+

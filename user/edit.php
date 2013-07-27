@@ -1,6 +1,9 @@
-<html><title>Edit post</title>
-<body>
+<?php
+require "../includes/htmlcode.php";
+start_html("Find post to edit");
+?>
 
+<h1>Find post to edit</h1>
 <form action="editpost.php" method="get">
 Date: (YYYY-MM-DD) <input type="date" name="date">
 <br /><br />
@@ -9,6 +12,6 @@ Title: <input type="text" name="title">
 <input type="submit" value="Find post">
 </form>
 
-
-</body>
-</html>
+<?php
+end_html();
+?>

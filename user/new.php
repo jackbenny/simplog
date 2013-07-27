@@ -1,6 +1,9 @@
-<html><title>Create a new post</title>
-<body>
+<?php
+require "../includes/htmlcode.php";
+start_html("Create new post");
+?>
 
+<h1>Create new post</h1>
 <form action="createpost.php" method="post">
 Date: (YYYY-MM-DD) <input type="date" name="date">
 <br />
@@ -12,5 +15,6 @@ Text: <br />
 <input type="submit" value="Create post">
 </form>
 
-</body>
-</html>
+<?php 
+end_html();
+?>

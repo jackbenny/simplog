@@ -4,11 +4,10 @@
 require "includes/config.php";
 require "includes/dbconnect.php";
 
-
 // Divide the posts into pages, N number of posts on every page
-if (isset($_GET["page"]))
+if (isset($_GET['page']))
 {
-	$page = $_GET["page"];
+	$page = $_GET['page'];
 }
 else
 {
@@ -24,11 +23,10 @@ $result = mysql_query($query)
 // Printing posts in HTML
 while ($line = mysql_fetch_array($result))
 {
-print "<h2>" . $line['title'] . "</h2>";
-print "\n<p>";
-print $line['posttext'];
-print "\n<br/>" . $line['date'];
-print "</p>";
+print "<h2>$line[title]</h2>\n<p>";
+print "$line[posttext]\n<br />";
+print "Posted on: $line[date]";
+print "</p>\n\n";
 }
 
 // Printing page links
@@ -43,10 +41,8 @@ for ($i=1; $i<=$total_posts; $i++)
 	print "<a href='index.php?page=".$i."'>".$i."</a> ";
 }
 
-
 // Close MySQL link
-mysql_free_result($result);
-mysql_close($link);
+require "includes/dbclose.php";
 
 
 ?>

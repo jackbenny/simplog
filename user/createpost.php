@@ -3,6 +3,9 @@
 // Include config file
 require "../includes/config.php";
 require "../includes/dbconnect.php";
+require "../includes/htmlcode.php";
+
+start_html("New post created");
 
 
 $query = "INSERT INTO blog (date, title, posttext) VALUES
@@ -18,5 +21,6 @@ print "Post added";
 // Close MySQL link
 mysql_close($link);
 
+end_html();
 
 ?>

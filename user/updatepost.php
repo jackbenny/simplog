@@ -3,6 +3,9 @@
 // Include config file
 require "../includes/config.php";
 require "../includes/dbconnect.php";
+require "../includes/htmlcode.php";
+
+start_html("Post updated");
 
 
 $query = "UPDATE blog SET date='$_POST[date]', title='$_POST[title]',
@@ -18,5 +21,6 @@ print "Post updated";
 // Close MySQL link
 mysql_close($link);
 
+end_html();
 
 ?>
