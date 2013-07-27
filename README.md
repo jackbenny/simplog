@@ -7,6 +7,10 @@ What's missing?
 ---------------
 Not much really as of 2013-07-27, depending on how you plan to use it. Included is a template to create the MySQL table, a small HTML and PHP file to create new posts, an index.php file that displays your posts and a config file to connect to a database and set number of posts per page. Now there is also a HTML file to find your posts and edit/update them. Note that you need to protect the user directory yourself (with for example a .htaccess file), or else everyone can post on your blog.
 
+Usage
+-----
+simplog.php is intended to be included (with php include) on your webpage, therefore simplog.php doesn't include any HTML start/end tags or anything like that. That's for your webpage to handle, simplog is made as clean as possible for this reason. The includes and user directory also needs to be on your server in the same directory, they include important files. In the user directory you can create new posts and edit existing ones. To edit a post click on Edit post (in /user) and fill in the date and title of the post you want to edit. Hit Find post to find the post or posts matching. Now you can edit the post.
+
 How do I create the MySQL table?
 --------------------------------
 Either create a new database and possibly a new user or use an existing database/user and run the command:
