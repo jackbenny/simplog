@@ -6,6 +6,7 @@ require "../includes/dbconnect.php";
 require "../includes/htmlcode.php";
 
 start_html("Post updated");
+include "../includes/login.inc";
 
 
 $query = "UPDATE blog SET date='$_POST[date]', title='$_POST[title]',
