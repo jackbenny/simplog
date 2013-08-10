@@ -1,6 +1,7 @@
 <?php
 require "../includes/htmlcode.php";
 start_html("Create new post");
+include "../includes/login.inc";
 ?>
 
 <h1>Create new post</h1>
