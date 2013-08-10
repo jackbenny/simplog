@@ -5,7 +5,9 @@ simplog is a (very) simple PHP blog engine. It's supposed to be implemented into
 
 What's missing?
 ---------------
-Not much really as of 2013-07-27, depending on how you plan to use it. Included is a template to create the MySQL table, a small HTML and PHP file to create new posts, an index.php file that displays your posts and a config file to connect to a database and set number of posts per page. Now there is also a HTML file to find your posts and edit/update them. Note that you need to protect the user directory yourself (with for example a .htaccess file), or else everyone can post on your blog.
+Not much really as of 2013-07-27, depending on how you plan to use it. Included is a template to create the MySQL table, a small HTML and PHP file to create new posts, an index.php file that displays your posts and a config file to connect to a database and set number of posts per page. Now there is also a HTML file to find your posts and edit/update them.
+
+You no longer need to protect the user/ directory yourself. Authentication is done using the database.
 
 Usage
 -----
