@@ -13,11 +13,21 @@ simplog.php is intended to be included (with php include) on your webpage, there
 
 How do I create the MySQL table?
 --------------------------------
-Either create a new database and possibly a new user or use an existing database/user and run the command:
+
+Either create a new mysql user and database or use an existing one, then either:
+
+Option 1) Go to http://mydomain.tld/path-to-simplog/install.php
+
+    or...
+
+Option 2) Run this command from the shell:
 
 	mysql -u <user> -p <database> < blogtable.sql
 
-You'll be asked to enter the passwor for the user, enter it. Now you have created the table for the blog. Now you can start filling it with blog posts.
+You'll be asked to enter the password for the user, enter it.
+
+
+Now you have created the table for the blog. Now you can start filling it with blog posts.
 
 Contributing
 ------------
