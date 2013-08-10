@@ -1,4 +1,5 @@
 <?php
+require "config.php";
 
 // Connect to MySQL database
 $link = mysql_connect($host, $user, $password)
