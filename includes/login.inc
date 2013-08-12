@@ -10,7 +10,7 @@ if ( $_COOKIE['session'] ) { // If yes, continue loading page as normal
 
 # Attempt login
 	require "dbconnect.php";
- 	$sql = "SELECT id,username FROM users WHERE username='$_POST[username]' and password=PASSWORD('$_POST[password]')";
+ 	$sql = "SELECT id,username FROM blog_users WHERE username='$_POST[username]' and password=PASSWORD('$_POST[password]')";
 	$result = mysql_query($sql) or die (mysql_error());
 
 #	echo "Results: " . mysql_num_rows($result); // Debugging line

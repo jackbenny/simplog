@@ -26,8 +26,8 @@ if (mysql_error()) {
 	echo "Table 'Blog' created successfully.<br />";
 }
 
-# Try to create 'users' table
-$sql = "CREATE TABLE `users` (`id` int(11) NOT NULL AUTO_INCREMENT,`username` varchar(20) NOT NULL,`name` varchar(40) NOT NULL,`password` varchar(64) NOT NULL,`salt` int(64) NOT NULL,`session` int(64), PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
+# Try to create 'blog_users' table
+$sql = "CREATE TABLE `blog_users` (`id` int(11) NOT NULL AUTO_INCREMENT,`username` varchar(20) NOT NULL,`name` varchar(40) NOT NULL,`password` varchar(64) NOT NULL,`salt` int(64) NOT NULL,`session` int(64), PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 $result = mysql_query($sql);
 if (mysql_error()) {
         echo mysql_error() . ".<br />";
@@ -36,7 +36,7 @@ if (mysql_error()) {
 }
 
 # Try to create 'admin' user
-$sql = "INSERT INTO `users` (`id`, `username`, `name`, `password`, `session`) VALUES (NULL, 'admin', 'Admin', PASSWORD('admin'), RAND(10000), NULL);";
+$sql = "INSERT INTO `blog_users` (`id`, `username`, `name`, `password`, `session`) VALUES (NULL, 'admin', 'Admin', PASSWORD('admin'), RAND(10000), NULL);";
 $result = mysql_query($sql);
 if (mysql_error()) {
         echo "User 'admin' already exists.<br />";
