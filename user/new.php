@@ -1,11 +1,12 @@
 <?php
 require "../includes/htmlcode.php";
 start_html("Create new post");
+include "../includes/login.inc";
 ?>
 
 <h1>Create new post</h1>
 <form action="createpost.php" method="post">
-Date: (YYYY-MM-DD) <input type="date" name="date">
+Date: (DD-MM-YYYY) <input type="date" name="date">
 <br />
 Title: <input type="text" name="title">
 <br /><br />

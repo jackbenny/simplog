@@ -1,6 +1,7 @@
 <?php
 require "../includes/htmlcode.php";
 start_html("Find post to edit");
+include "../includes/login.inc";
 ?>
 
 <h1>Find post to edit</h1>
