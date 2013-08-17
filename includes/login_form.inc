@@ -1,4 +1,4 @@
-<form action="<?php echo $_SERVER[REQUEST_URI]; ?>" method="post">
+<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
 <input type="hidden" name="do" value="authenticate">
 
 <table border=0>
