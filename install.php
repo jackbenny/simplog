@@ -27,7 +27,7 @@ if (mysql_error()) {
 }
 
 # Try to create 'blog_users' table
-$sql = "CREATE TABLE `blog_users` (`id` int(11) NOT NULL AUTO_INCREMENT,`username` varchar(20) NOT NULL,`name` varchar(40) NOT NULL,`password` varchar(64) NOT NULL,`salt` int(64) NOT NULL,`session` int(64), PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
+$sql = "CREATE TABLE `blog_users` (`id` int(11) NOT NULL AUTO_INCREMENT,`username` varchar(20) NOT NULL,`name` varchar(40) NOT NULL,`password` varchar(64) NOT NULL,`salt` int(64),`session` int(64), PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 $result = mysql_query($sql);
 if (mysql_error()) {
         echo mysql_error() . ".<br />";
