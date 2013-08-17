@@ -6,6 +6,8 @@ require "../includes/dbconnect.php";
 require "../includes/htmlcode.php";
 
 start_html("Edit post");
+include "../includes/login.inc";
+
 print "<h1>Edit post</h1>";
 
 $query = "SELECT * FROM blog WHERE date='$_GET[date]' AND title='$_GET[title]'";

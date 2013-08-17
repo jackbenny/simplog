@@ -1,6 +1,7 @@
 <?php
 require "../includes/htmlcode.php";
 start_html("simlog user interface");
+include "../includes/login.inc";
 ?>
 
 <h1>simplog user interface</h1>
