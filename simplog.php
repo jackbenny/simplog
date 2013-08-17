@@ -38,7 +38,7 @@ $total_posts = ceil($total_posts / $posts_per_page);
 
 for ($i=1; $i<=$total_posts; $i++)
 {
-	print "<a href='index.php?page=".$i."'>".$i."</a> ";
+	print "<a href='simplog.php?page=".$i."'>".$i."</a> ";
 }
 
 // Close MySQL link
