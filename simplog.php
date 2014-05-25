@@ -3,6 +3,8 @@
 // Include config file and other include-files
 require "includes/config.php";
 require "includes/dbconnect.php";
+require "includes/htmlcode.php";
+start_html("Simplog");
 
 // Divide the posts into pages, N number of posts on every page
 if (isset($_GET['page']))
@@ -44,5 +46,5 @@ for ($i=1; $i<=$total_posts; $i++)
 // Close MySQL link
 require "includes/dbclose.php";
 
-
+end_html();
 ?>

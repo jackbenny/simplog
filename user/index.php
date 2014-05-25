@@ -11,6 +11,9 @@ include "../includes/login.inc";
 <p>
 <a href="edit.php">Edit existing post</a>
 </p>
+<p>
+<a href="logout.php">Logout</a>
+</p>
 
 <?php
 end_html();
