@@ -6,7 +6,7 @@ setcookie("session", "", time()-3600);
 
 <p>
 You have been logged out succesfully!<br />
-<a href="../simplog.php">Return to simplog</a>
+<a href="../index.php">Return to simplog</a>
 </p>
 
 <?php

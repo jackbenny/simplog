@@ -1,24 +1,10 @@
 simplog
 =======
 
-simplog is a (very) simple PHP blog engine. It's supposed to be implemented into
-an existing webpage since this in only the engine part and does not contain a 
-complete webpage/blog of any kind. It's also intended to only have a single 
-user.
-
-What's missing?
----------------
-Not much really as of 2013-07-27, depending on how you plan to use it. Included 
-is a template to create the MySQL table, a small HTML and PHP file to create 
-new posts, a simplog.php file that displays your posts and a config file to 
-connect to a database and set number of posts per page. Now there is also a 
-HTML file to find your posts and edit/update them.
-
-You no longer need to protect the user/ directory yourself. Authentication is 
-done using the database.
-
-Since of 2014-06-25 there is also nice HTML-template for a real blog. So now
-it's possible to just upload it and start blogging away!
+simplog is a simple PHP blog engine. It's supposed to either be implemented into
+an existing webpage (simplog.php) since this in only the engine part or being
+run as is with the included index.php which is a simple webpage easy to 
+customize.
 
 Usage
 -----
@@ -32,30 +18,28 @@ on Edit post (in /user) and fill in the date and title of the post you want to
 edit. Hit Find post to find the post or posts matching. Now you can edit the 
 post.
 
+From 2014-06-26 there is a index.php file included with a simple yet fancy
+webpage one can use for everyday blogging. It's simple to customize since all of
+the design, colors etc resides in a single CSS file.
+
 How do I create the MySQL table?
 --------------------------------
 
-Either create a new mysql user and database or use an existing one, then either:
+Either create a new mysql user and database or use an existing one, then:
 
-Option 1) Go to http://mydomain.tld/path-to-simplog/install.php
+Go to http://mydomain.tld/path-to-simplog/install.php
 
-    or...
-
-Option 2) Run this command from the shell:
-
-	mysql -u <user> -p <database> < blogtable.sql
-
-You'll be asked to enter the password for the user, enter it.
-
-
-Now you have created the table for the blog. Now you can start filling it with 
-blog posts.
+On this page you enter a password for the admin user. The admin user is unique
+in the MySQL table so once you've entered a password for the user you cannot
+run it again. But to really be on the safe side you should remove install.php
+after you have entered a password for admin.
+Once you have entered your desired password you have created the table for the 
+blog and can start filling it with blog posts.
 
 Screenshot
 ----------
 
 ![alt text](screenshots/blog.png "Blog")
-
 
 Contributing
 ------------

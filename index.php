@@ -27,7 +27,7 @@
     <meta name="description" content="jackbenny" />
     <meta name="keywords" content="linux,html,css" />
     <meta name="author" content="Jack-Benny Persson" />
-    <link type="text/css" rel="stylesheet" href="blogsite.css">
+    <link type="text/css" rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
@@ -39,6 +39,7 @@
                 <li class="link"><a href="#">About</a></li>
                 <li class="link"><a href="#">Articles</a></li>
                 <li class="link"><a href="#">Contact</a></li>
+                <li class="link"><a href="user/">Login</a></li>
             </ul>
             </div>
             <div id="logo">
@@ -67,7 +68,9 @@
             $query = "SELECT * FROM blog ORDER BY date DESC LIMIT $start, 
                      $posts_per_page";
             $result = mysql_query($query)
-                or die("No matching queries...");
+                or die("No matching queries...<br /> It seems you either " .
+                        "haven't started blogging yet or haven't installed the".
+                        " the database table yet<br/>");
 
 
             // Printing posts in HTML

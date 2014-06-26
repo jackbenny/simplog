@@ -18,7 +18,10 @@ if (!mysql_query($query))
 }
 print "Post updated";
 
-
+?>
+<br/>
+<a href="../index.php">Back to simplog</a>
+<?php
 // Close MySQL link
 mysql_close($link);
 

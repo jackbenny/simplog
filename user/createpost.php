@@ -16,8 +16,10 @@ if (!mysql_query($query))
 	die ("Something went wrong!");
 }
 print "Post added";
-
-
+?>
+<br/>
+<a href="../index.php">Back to simplog</a>
+<?php
 // Close MySQL link
 mysql_close($link);
 
