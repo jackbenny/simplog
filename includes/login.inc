@@ -13,7 +13,8 @@ else if (isset($_POST['do']) == "authenticate")
 
     # Attempt login
 	require "dbconnect.php";
- 	$sql = "SELECT id,username FROM blog_users WHERE username='$_POST[username]' and password=PASSWORD('$_POST[password]')";
+    $pass = md5($_POST['password']);
+ 	$sql = "SELECT id,username FROM blog_users WHERE username='$_POST[username]' and password='$pass'";
 	$result = mysql_query($sql) or die (mysql_error());
 
     #	echo "Results: " . mysql_num_rows($result); // Debugging line
