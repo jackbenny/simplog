@@ -10,14 +10,9 @@ class Page
         $this->filename = $filename;
     }
     
-    public function createPage()
-    {
-        include ("{$contentFolder}{$this->filename}.html");
-    }
-    
     public function createMenuItem()
     {
-        // Match just the name, without the .html, .php etc parc
+        // Match just the name, without the .html, .php etc part
         preg_match_all("/[a-z_\-0-9]*/i", $this->filename, $out);
         $bareFilename = $out[0][0];
         
@@ -26,6 +21,7 @@ class Page
         $this->name . "</a></li>\n");
     }
     
+    // For future-uses...
     public function getName()
     {
         return $this->name;
