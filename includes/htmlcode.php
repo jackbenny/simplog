@@ -15,4 +15,16 @@ function end_html()
 	print "\n\n</body>\n</html>\n";
 }
 
+function footer()
+{
+    print "
+        </div>
+        <div id=\"footer\">
+            <p>&copy; 2014 - Jack-Benny Persson</p>
+        </div>
+    </div>
+</body>
+
+</html>";
+}
 ?>

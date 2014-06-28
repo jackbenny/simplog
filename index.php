@@ -18,6 +18,19 @@
    
    
 -->
+<?php
+require ("content.php");
+require ("includes/htmlcode.php");
+require ("includes/config.php");
+require ("includes/miscfunc.php");
+
+/* For our subpages (About, Contact etc)
+   First argument is the name of link as it should appear in the menu, second
+   argument is the filename of file in content/ without directory, slashed etc.
+   */
+$aboutPage = new Page("About", "about.html");
+$contactPage = new Page("Contact", "contact.html");
+?>
 
 <!DOCTYPE html>
 
@@ -35,10 +48,12 @@
         <div id="navbar">
             <div id="navlink-right">
             <ul class="ul-links">
-                <li class="link"><a href="#">Home</a></li>
-                <li class="link"><a href="#">About</a></li>
-                <li class="link"><a href="#">Articles</a></li>
-                <li class="link"><a href="#">Contact</a></li>
+                <li class="link"><a href="index.php">Home</a></li>
+                <?php
+                // Add menu items here! ($object->createMenuItem();)
+                $aboutPage->createMenuItem();
+                $contactPage->createMenuItem();
+                ?>
                 <li class="link"><a href="user/">Login</a></li>
             </ul>
             </div>
@@ -49,11 +64,38 @@
         <div id="content">
         
             <?php
+            
+            // Subpage content begin
+            if (isset($_GET['content']))
+            {
+                $content = $_GET['content'];
+                function nodir($item)
+                {
+                    return (!is_dir(Page::$contentFolder . $item));
+                }
+                
+                $dirContent = scandir(Page::$contentFolder);
 
-            // Include config file and other include-files
-            require "includes/config.php";
-            require "includes/dbconnect.php";
+                $files = (array_filter($dirContent, "nodir"));
 
+                foreach($files as $file)
+                {
+                    preg_match_all("/[a-z_\-0-9]*/i", $file, $withoutExt);
+                    if ($withoutExt[0][0] == $content)
+                    {
+                         include (Page::$contentFolder . $file);
+                    }
+                }
+                terminate();
+            }
+            // Subpage content ends
+
+            
+            // Simplog (blog posts etc)
+            // Connect to db (it's down here to show the blogpage even in cases
+            // where of failure to connect)
+            require ("includes/dbconnect.php");
+            
             // Divide the posts into pages, N number of posts on every page
             if (isset($_GET['page']))
             {
@@ -65,13 +107,13 @@
             }
             $start = ($page-1) * $posts_per_page;
 
+            // Fetch posts
             $query = "SELECT * FROM blog ORDER BY date DESC LIMIT $start, 
                      $posts_per_page";
             $result = mysql_query($query)
-                or die("No matching queries...<br /> It seems you either " .
-                        "haven't started blogging yet or haven't installed the".
-                        " the database table yet<br/>");
-
+                or terminate("No matching queries...<br /> It seems you " . 
+                        "either haven't started blogging yet or haven't " .
+                        "installed the the database table yet<br/>");
 
             // Printing posts in HTML
             while ($line = mysql_fetch_array($result))
@@ -92,20 +134,14 @@
             print "<strong>Page: ";
             for ($i=1; $i<=$total_posts; $i++)
             {
-                print "<a href='blogsite.php?page=".$i."'>".$i."</a> ";
+                print "<a href='index.php?page=".$i."'>".$i."</a> ";
             }
             print "</strong>";
 
             // Close MySQL link
             require "includes/dbclose.php";
 
+            footer();
             ?>
         
-        </div>
-        <div id="footer">
-            <p>&copy; 2014 - Jack-Benny Persson</p>
-        </div>
-    </div>
-</body>
 
-</html>
