@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <!--
    Copyright 2014 Jack-Benny Persson <jack-benny@cyberinfo.se>
    
@@ -32,8 +34,6 @@ $pageNotFound = new Page("404", "404.html");
 $aboutPage = new Page("About", "about.html");
 $contactPage = new Page("Contact", "contact.html");
 ?>
-
-<!DOCTYPE html>
 
 <head>
 	<title>My Blog</title>
