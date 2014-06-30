@@ -21,6 +21,11 @@ class Page
         $this->name . "</a></li>\n");
     }
     
+    public function getFile()
+    {
+        return $this->filename;
+    }
+
     // For future-uses...
     public function getName()
     {

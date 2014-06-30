@@ -19,7 +19,7 @@
    
 -->
 <?php
-require ("content.php");
+require ("includes/content.php");
 require ("includes/htmlcode.php");
 require ("includes/config.php");
 require ("includes/miscfunc.php");
@@ -28,6 +28,7 @@ require ("includes/miscfunc.php");
    First argument is the name of link as it should appear in the menu, second
    argument is the filename of file in content/ without directory, slashed etc.
    */
+$pageNotFound = new Page("404", "404.html");
 $aboutPage = new Page("About", "about.html");
 $contactPage = new Page("Contact", "contact.html");
 ?>
@@ -69,6 +70,8 @@ $contactPage = new Page("Contact", "contact.html");
             if (isset($_GET['content']))
             {
                 $content = $_GET['content'];
+
+                // Function to remove directories
                 function nodir($item)
                 {
                     return (!is_dir(Page::$contentFolder . $item));
@@ -78,14 +81,18 @@ $contactPage = new Page("Contact", "contact.html");
 
                 $files = (array_filter($dirContent, "nodir"));
 
+                // Iterate through all the files for a match (from ?content=)
                 foreach($files as $file)
                 {
                     preg_match_all("/[a-z_\-0-9]*/i", $file, $withoutExt);
                     if ($withoutExt[0][0] == $content)
                     {
                          include (Page::$contentFolder . $file);
+                         terminate();
                     }
                 }
+                // If no match was found, display a default page (here 404)
+                include (Page::$contentFolder . $pageNotFound->getFile());
                 terminate();
             }
             // Subpage content ends
