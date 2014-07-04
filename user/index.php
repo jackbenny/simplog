@@ -12,6 +12,9 @@ include "../includes/login.inc";
 <a href="edit.php">Edit existing post</a>
 </p>
 <p>
+<a href="editfiles.php">Edit content files</a>
+</p>
+<p>
 <a href="logout.php">Logout</a>
 </p>
 

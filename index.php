@@ -78,7 +78,6 @@ $contactPage = new Page("Contact", "contact.html");
                 }
                 
                 $dirContent = scandir(Page::$contentFolder);
-
                 $files = (array_filter($dirContent, "nodir"));
 
                 // Iterate through all the files for a match (from ?content=)

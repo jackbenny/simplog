@@ -2,6 +2,7 @@
 class Page
 {
     public $name, $filename;
+    public static $parentDir = "../";
     public static $contentFolder = "content/";
     
     public function __construct($name, $filename)
@@ -26,11 +27,24 @@ class Page
         return $this->filename;
     }
 
+    public function nodir($item)
+    {
+        return (!is_dir(Page::$parentDir . Page::$contentFolder . $item));
+    }
+    
+    public static function fileList()
+    {
+        $dirContent = scandir(Page::$parentDir . Page::$contentFolder);
+        $files = (array_filter($dirContent, "Page::nodir"));
+        return $files;
+    }
+    
     // For future-uses...
     public function getName()
     {
         return $this->name;
     }
+    
 }
     
 ?>

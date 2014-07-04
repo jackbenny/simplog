@@ -3,7 +3,7 @@
 function start_html($title)
 {
 print "
-<html>
+<!DOCTYPE html>
 <head>
 <title>$title</title>
 </head>
