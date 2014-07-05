@@ -3,8 +3,13 @@ require ("../includes/content.php");
 require ("../includes/miscfunc.php");
 require ("../includes/htmlcode.php");
 
-//Make some form of control below, this is unsafe...
-$file = Page::$parentDir . Page::$contentFolder . $_GET['file'];
+/*regexp to strip away '..', '/' and so forth. Filename must now be in the
+  format of myfile.ext, where myfile can be 1 to 20 chars long (including '-'
+  and '_') and ext can be
+  from 1 to 4 chars.*/
+$filename = $_GET['file'];
+preg_match_all("/[a-z_\-0-9]{1,30}\.[a-z]{1,4}/i", $filename, $checkedFilename);
+$file = Page::$parentDir . Page::$contentFolder . $checkedFilename[0][0];
 
 if(isset($_POST['content']))
 {
